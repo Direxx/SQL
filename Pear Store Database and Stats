@@ -1,0 +1,30 @@
+/** Mock Technological Based store
+Inspired by Apple Inc.
+Data compiled of statistics based on
+manfacturing cost, retail cost, storage,
+inventory stock and model. Seperate table
+input is to show total retail value of "Pear"**/
+
+
+CREATE TABLE inventory (id INTEGER PRIMARY KEY, Model TEXT, Manufacturer TEXT,Cost INTEGER, GB INTEGER, Price INTEGER, Stock INTEGER);
+INSERT INTO inventory VALUES 
+(1, "iPear 14", "Pear", 250.00, 64, 799.99, 40),
+(2, "iPear 14 Pro", "Pear", 350.99, 64, 999.99, 80),
+(3, "iPear 14 Pro Max", "Pear", 400.00, 64, 1099.99, 100),
+(4, "iPear 13", "Pear", 150.00, 64, 599.99, 50),
+(5, "iPear 12", "Pear", 100.00, 64, 599.99, 50),
+(6, "iPear SX", "Pear", 50.00, 64, 429.99, 30),
+(7, "PearPad", "Pear", 50.00, 64, 449.99, 30),
+(8, "PearPad Pro", "Pear", 80.00, 64, 799.99, 100),
+(9, "PearPad Air", "Pear", 40.00, 64, 599.99, 100),
+(10, "PearPad Mini", "Pear", 50.00, 64, 449.99, 150),
+(11, "Pear Pencil", "Pear", 5.00, 0, 129.99, 80),
+(12, "Pearbook", "Pear", 200.00, 256, 999.99, 50),
+(13, "Pearbook Pro", "Pear", 250.00, 256, 1499.99, 50),
+(14, "Pear Studio", "Pear", 350.00, 512, 1999.99, 50),
+(15, "Pear Mini", "Pear", 300.00, 256, 599.99, 50);
+
+
+SELECT model, manufacturer, price, GB, stock FROM inventory GROUP BY model;
+
+SELECT manufacturer, SUM(price*stock) AS "Retail Value" FROM inventory GROUP BY manufacturer;
